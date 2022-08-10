@@ -1,33 +1,39 @@
-import { toHaveDisplayValue } from "@testing-library/jest-dom/dist/matchers";
 import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
     count: 0,
-    languages : ['javascript','python','c#','dart'],
+    languages : [],
   };
   styles = {
     fontSize: 16,
     fontWeight: "bold",
   };
+
+
+  renderLanguages (){
+    if (this.state.languages.length === 0){
+        return <p>There are no Languages</p>;
+    } else{
+
+        return <ul>
+                    { this.state.languages.map(tag =>
+                        <li key={tag}>{tag}</li>
+                    )}
+                </ul>;
+    }
+
+  }
+
   render() {
     return (
       <React.Fragment>
-        <span style={this.styles} className={this.getBadgeClasses()}>{this.formatCount()}</span> 
-        <button className='btn btn-secondart btn-lg'>counter</button>
-        <ul>
-            { this.state.languages.map(tag =>
-                <li key={tag}>{tag}</li>
-            )}
-        </ul>
+        {this.state.languages.length === 0 && "please create tags"}
+        { this.renderLanguages() }
       </React.Fragment>
     );
   }
-    getBadgeClasses() {
-        let classes = "m-2 badge badge-";
-        classes += this.state.count === 0 ? "warning" : "primary";
-        return classes;
-    }
+   
 
   formatCount () {
     const {count} = this.state;
