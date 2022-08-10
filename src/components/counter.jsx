@@ -37,15 +37,15 @@ class Counter extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
-      </React.Fragment>
+        <button onClick={this.handleIncrement} className="btn btn-secondary btn-lg">Increment</button>
+      </div>
     );
   }
    
   getBadgeClasses(){
-    let classes = 'mx-1 badge m2 badge-';
+    let classes = 'mx-1 mb-2 badge m2 badge-';
     classes += this.state.count === 0 ? "warning" : "primary";
     return classes;
   }
