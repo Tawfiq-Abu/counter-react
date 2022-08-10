@@ -6,7 +6,7 @@ class Counter extends Component {
     languages : [],
   };
   styles = {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
   };
 
@@ -32,9 +32,7 @@ class Counter extends Component {
   }
 
   handleIncrement= ()=>{
-    console.log('Increment Clicked',this);
-    this.state.count +=1
-    console.log(this.state.count)
+    this.setState({ count: this.state.count +1})
   }
 
   render() {
@@ -47,7 +45,7 @@ class Counter extends Component {
   }
    
   getBadgeClasses(){
-    let classes = 'badge m2 badge-';
+    let classes = 'mx-1 badge m2 badge-';
     classes += this.state.count === 0 ? "warning" : "primary";
     return classes;
   }
