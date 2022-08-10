@@ -39,7 +39,7 @@ class Counter extends Component {
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button onClick={this.handleIncrement} className="btn btn-secondary btn-lg">Increment</button>
+        <button onClick={this.handleIncrement} className="btn btn-secondary btn-lg mb-2">Increment</button>
       </div>
     );
   }
